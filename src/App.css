@@ -1,14 +1,15 @@
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #ac54b4;
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
+	background-size: 1300% 1300%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
+  width: 100vw;
+  padding: 0 3rem;
 }
 
 @keyframes gradient {
@@ -32,30 +33,53 @@ body {
 .app {
   position: relative;
   align-items: center;
+  text-align: center;
 }
 
 .app .top h1,
-.app .top input,
-.app .top .searchBtn {
+.app .top input {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
 }
 
-.app .top h1,
-.app .top .searchBtn {
+.app .top h1 {
+  font-size: 20px;
+  margin: 2rem 0;
+  opacity: 0.9;
   color: #fff;
 }
 
-.app .top input {
-  margin: 1rem 0;
-  padding: 0.3rem 0.5rem;
+.app .top .search-bar {
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.2);
+  padding: 5px 10px;
+  border-radius: 50px;
+  backdrop-filter: blur(4px) saturate(80%);
 }
 
-.app .top .searchBtn {
-  padding: 0.1rem 0.5rem;
-  background: #1d1c1c;
-  letter-spacing: 0.2rem;
-  border: 2px solid #fff;
-  border-radius: 25%;
+.app .top .search-input {
+  width: 80%;
+  font-size: 0.7rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.app .top .search-lens {
+  width: 35px;
+  border-radius: 50%;
+  padding: 0.4rem;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
 }
 
 .app .image-container {
@@ -63,26 +87,35 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding: 5rem;
+  padding: 3rem;
 }
 
-.app .image-container .image {
-  height: 100%;
-  border: 4px solid #fff;
-  /* box-shadow: 0 5px 15px #000(0, 0, 0, 0.1); */
-  overflow: hidden;
-  cursor: pointer;
+.app .image-container .vignette-hover-effect {
+  position: relative;
+  display: inline-block;
 }
 
-.app .image-container .image img{
-  height: 100%;
+.app .image-container .vignette-hover-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  object-fit: cover;
-  transition: 0.2s linear;
+  height: 100%;
+  
 }
 
-.app .image-container .image:hover img{
-  transform: scale(1.2);
+.app .image-container .vignette-hover-effect .image {
+  height: 30vh;
+  width: 73vw;
+  border-radius: 5%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.app .image-container .vignette-hover-effect .image:hover {
+  display: block;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
 }
 
 /*============ Modal ============ */
@@ -97,14 +130,20 @@ body {
   font-size: 18px;
 }
 
-.modal, .overlay {
+.modal, 
+.overlay {
   width: 100vw;
+  display: none;
   height: 100vh;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   position: fixed;
+}
+
+.modal > img {
+	border: 1px solid #fff;
 }
 
 .overlay {
@@ -127,7 +166,7 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  /* padding: 5px 7px; */
+  padding: 5px 7px;
   background: #cc2727;
   color: #fff;
   font-size: 20px;
@@ -135,55 +174,3 @@ body {
   border-radius: 20%;
   cursor: pointer;
 }
-
-
-
-
-
-
-/* .app .image-container .popup-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #353434;
-  height: 100%;
-  width: 100%;
-  z-index: 100;
-  display: none;
-}
-
-.app .image-container .popup-image span{
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 40px;
-  font-weight: bolder;
-  color: #fff;
-  cursor: pointer;
-  z-index: 100;
-}
-
-.app .image-container .popup-image img{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 5px solid #fff;
-  border-radius: 5px;
-  width: 750px;
-  object-fit: cover; 
-}
-
-
-.wide {
-    grid-column: span 2;
-}
-
-.tall {
-    grid-row: span 2;
-}
-
-.big {
-    grid-column: span 2;
-    grid-row: span 2;
-} */
