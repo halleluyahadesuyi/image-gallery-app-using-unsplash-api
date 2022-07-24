@@ -82,7 +82,9 @@ body {
   cursor: pointer;
 }
 
-.app .image-container {
+/* image container */
+
+.image-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -90,32 +92,40 @@ body {
   padding: 3rem;
 }
 
-.app .image-container .vignette-hover-effect {
-  position: relative;
-  display: inline-block;
-}
-
-.app .image-container .vignette-hover-effect::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.image {
+  /* height: 30vh;
+  width: 73vw; */
   width: 100%;
-  height: 100%;
-  
-}
-
-.app .image-container .vignette-hover-effect .image {
-  height: 30vh;
-  width: 73vw;
-  border-radius: 5%;
   cursor: pointer;
   object-fit: cover;
 }
 
-.app .image-container .vignette-hover-effect .image:hover {
+.img-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 30vh;
+  width: 73vw;
+  background-color: rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-wrapper:hover .img-overlay {
   display: block;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+}
+
+.img-wrapper .img-overlay {
+  display: none;
+  color: #fff;
+  background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.3) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  
 }
 
 /*============ Modal ============ */
@@ -149,6 +159,7 @@ body {
 .overlay {
   background: rgba(77, 75, 75, 0.08);
 }
+
 .modal-content {
   position: absolute;
   top: 40%;
