@@ -26,10 +26,12 @@ function App() {
 
   function openModal(id) {
     document.getElementById(id).style.display = 'block'
+    document.body.classList.add('active-modal')
   }
 
   function closeModal(id) {
     document.getElementById(id).style.display = 'none'
+    document.body.classList.remove('active-modal')
   }
 
   return (
@@ -62,25 +64,26 @@ function App() {
                 <img
                   src={image.urls.thumb}
                   alt={image.alt_description}
-                  onClick={() => openModal(image.id)}
                   className='image'
                 />
-                <div className="img-overlay">Yadayada</div>
+                <div className="img-overlay" onClick={() => openModal(image.id)}>
+                  Click to view image details...
+                </div>
               </div>
 
               <div className="modal" id={image.id}>
-                <div onClick={closeModal} className="overlay"></div>
-                  <div className="modal-content">
-                    <img
-                      src={image.urls.thumb}
-                      alt={image.alt_description}
-                    />
+                <div onClick={() => closeModal(image.id)} className="overlay">overlayyyy</div>
+                <div className="modal-content">
+                  <img
+                    src={image.urls.thumb}
+                    alt={image.alt_description}
+                  />
 
-                    <button className="close-modal" onClick={() => closeModal(image.id)}>
-                      &times;
-                    </button>
-                  </div>
+                  <button className="btn-close-modal" onClick={() => closeModal(image.id)}>
+                    &times;
+                  </button>
                 </div>
+              </div>
             </section>
           )
         }

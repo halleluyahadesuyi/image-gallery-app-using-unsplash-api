@@ -1,6 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -38,7 +39,6 @@ body {
 
 .app .top h1,
 .app .top input {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
 }
 
@@ -93,8 +93,6 @@ body {
 }
 
 .image {
-  /* height: 30vh;
-  width: 73vw; */
   width: 100%;
   cursor: pointer;
   object-fit: cover;
@@ -119,13 +117,16 @@ body {
 .img-wrapper .img-overlay {
   display: none;
   color: #fff;
+  font-size: 10px;
   background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.3) 100%);
   position: absolute;
   top: 0;
   left: 0;
+  padding-top: 90px;
   height: 100%;
   width: 100%;
-  
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em red;
+  cursor: pointer;
 }
 
 /*============ Modal ============ */
@@ -133,17 +134,26 @@ body {
   overflow-y: hidden;
 }
 
-.image-modal {
-  padding: 10px 20px;
-  display: block;
-  margin: 100px auto 0;
-  font-size: 18px;
+.modal {
+  display: none;
+  /* position: relative; */
+
 }
+
+/* .overlay {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+} */
 
 .modal, 
 .overlay {
   width: 100vw;
-  display: none;
   height: 100vh;
   top: 0;
   left: 0;
@@ -152,12 +162,8 @@ body {
   position: fixed;
 }
 
-.modal > img {
-	border: 1px solid #fff;
-}
-
 .overlay {
-  background: rgba(77, 75, 75, 0.08);
+  background: rgba(77, 75, 75, 0.4);
 }
 
 .modal-content {
@@ -173,7 +179,7 @@ body {
   min-width: 300px;
 }
 
-.close-modal {
+.btn-close-modal {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -185,3 +191,57 @@ body {
   border-radius: 20%;
   cursor: pointer;
 }
+
+/* .modal {
+  position: relative;
+}
+
+.modal, 
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.modal > img {
+	border: 1px solid #fff;
+}
+
+.overlay {
+  background: rgba(77, 75, 75, 0.8);
+  position: absolute;
+}
+
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+  background: #cc2727;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+} */
+
+/* @media (min-width: 450px) {
+  
+} */
