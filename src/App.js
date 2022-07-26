@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import searchImage from './search.png'
+import likeIcon from './like_icon.png'
 
 function App() {
   const [searchText, setSearchText] = useState('random')
@@ -20,7 +21,9 @@ function App() {
 
   useEffect(imagesFetchRequest, [])
 
-  function handleSearch() {
+  function handleSearch(e) {
+    e.preventDefault()
+
     imagesFetchRequest()
   }
 
@@ -39,7 +42,7 @@ function App() {
       <div className='top'>
         <h1>Responsive Image-Gallery App</h1>
 
-        <section className='search-bar'>
+        <form onSubmit={handleSearch} className='search-bar'>
           <input
             type='text'
             name='images'
@@ -52,8 +55,9 @@ function App() {
             src={searchImage}
             alt='search'
             onClick={handleSearch}
-            className='search-lens' />
-        </section>
+            className='search-lens'
+          />
+        </form>
       </div>
 
       <div className='image-container'>
@@ -72,12 +76,25 @@ function App() {
               </div>
 
               <div className="modal" id={image.id}>
-                <div onClick={() => closeModal(image.id)} className="overlay">overlayyyy</div>
+                <div onClick={() => closeModal(image.id)} className="overlay"></div>
                 <div className="modal-content">
                   <img
                     src={image.urls.thumb}
                     alt={image.alt_description}
+                    className='modal-image'
                   />
+
+                  <div className='modal-image-info'>
+                    <div className="photographer">
+                      <img src={image.user.profile_image.small} alt='user profile image' className='photographer-image' />
+                      <p>{image.user.name}</p>
+                    </div>
+
+                    <div className="likes">
+                      <img src={likeIcon} alt='likes' className='likes-icon' />
+                      <p>{image.likes}</p>
+                    </div>
+                  </div>
 
                   <button className="btn-close-modal" onClick={() => closeModal(image.id)}>
                     &times;

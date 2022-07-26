@@ -6,7 +6,7 @@
 
 body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 1300% 1300%;
+	background-size: 2000% 2000%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
   width: 100vw;
@@ -55,7 +55,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background: rgba(255,255,255,0.2);
-  padding: 5px 10px;
+  padding: 5px 5px 5px 10px;
   border-radius: 50px;
   backdrop-filter: blur(4px) saturate(80%);
 }
@@ -69,45 +69,44 @@ body {
   color: #fff;
 }
 
-::placeholder {
+.search-input::placeholder {
   color: #fff;
   opacity: 0.9;
 }
 
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
 .app .top .search-lens {
   width: 35px;
-  border-radius: 50%;
+  border-radius: 50px;
   padding: 0.4rem;
   background: rgba(255,255,255,0.4);
   cursor: pointer;
 }
 
-/* image container */
+/*--------image container-------*/
 
 .image-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   padding: 3rem;
-}
-
-.image {
-  width: 100%;
-  cursor: pointer;
-  object-fit: cover;
+  max-width: 800px;
 }
 
 .img-wrapper {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  height: 30vh;
-  width: 73vw;
-  background-color: rgba(255,255,255,0.2);
-  display: flex;
+  height: 250px;
+  width: 200px;
+  /* background-color: rgba(255,255,255,0.2); */
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .img-wrapper:hover .img-overlay {
@@ -118,7 +117,7 @@ body {
   display: none;
   color: #fff;
   font-size: 10px;
-  background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.3) 100%);
+  background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.4) 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -129,71 +128,21 @@ body {
   cursor: pointer;
 }
 
-/*============ Modal ============ */
+.image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+/*-------Modal-------*/
 .active-modal {
   overflow-y: hidden;
 }
 
 .modal {
   display: none;
-  /* position: relative; */
-
-}
-
-/* .overlay {
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-} */
-
-.modal, 
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-}
-
-.overlay {
-  background: rgba(77, 75, 75, 0.4);
-}
-
-.modal-content {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1.4;
-  background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
-}
-
-.btn-close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
-  background: #cc2727;
-  color: #fff;
-  font-size: 20px;
-  border: none;
-  border-radius: 20%;
-  cursor: pointer;
-}
-
-/* .modal {
-  position: relative;
+  z-index: 99;
 }
 
 .modal, 
@@ -205,28 +154,20 @@ body {
   right: 0;
   bottom: 0;
   position: fixed;
-}
-
-.modal > img {
-	border: 1px solid #fff;
 }
 
 .overlay {
   background: rgba(77, 75, 75, 0.8);
-  position: absolute;
 }
 
 .modal-content {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  padding: 50px 20px ;
+  border: 3px solid black;
 }
 
 .btn-close-modal {
@@ -234,13 +175,51 @@ body {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
-  background: #cc2727;
-  color: #fff;
-  font-size: 20px;
+}
+
+.btn-close-modal:hover {
+  background: rgb(185, 54, 54);
+  padding: 9px;
   border: none;
-  border-radius: 20%;
+  border-radius: 2px;
+  color: #fff;
   cursor: pointer;
-} */
+}
+
+.modal-image {
+  max-width: 600px;
+  min-width: 300px;
+}
+
+/*-------Modal Image Info-------*/
+
+.modal-image-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-image-info p {
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.photographer,
+.likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photographer-image {
+  width: 25px;
+  border-radius: 50%;
+}
+
+.likes-icon {
+  width: 18px;
+  height: 16px;
+}
+
 
 /* @media (min-width: 450px) {
   
