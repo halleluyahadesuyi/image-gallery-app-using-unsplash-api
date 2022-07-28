@@ -251,6 +251,10 @@ body {
 /* ======= Media Queries ======= */
 
 @media (min-width: 420px) {
+  .app .top .search-bar {
+    width: 600px;
+  }
+
   .app .top .search-lens {
     cursor: pointer;
   }
