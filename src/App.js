@@ -71,7 +71,7 @@ function App() {
                   className='image'
                 />
                 <div className="img-overlay" onClick={() => openModal(image.id)}>
-                  Click to view image details...
+                  <p>Click to view image details...</p>
                 </div>
               </div>
 
