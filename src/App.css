@@ -77,6 +77,17 @@ body {
   background: rgba(255,255,255,0.4);
 }
 
+.click-notice {
+  display: none;
+  color: #fff;
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+span {
+  font-size: 15px;
+}
+
 /*======= Image Container=======*/
 
 .img-container,
@@ -162,6 +173,12 @@ body {
 
   .search-lens {
     cursor: pointer;
+  }
+
+  .click-notice {
+    display: block;
+    position: absolute;
+    top: 182px;
   }
 
   /*======= Image Container =======*/

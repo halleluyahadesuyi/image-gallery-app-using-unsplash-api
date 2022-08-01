@@ -78,6 +78,8 @@ function App() {
         </form>
       </div>
 
+      <p className="click-notice">***Click on preferred image for more info <span>👇</span></p>
+
       <div className='img-container'>
         {imagesRender.map((image) => {
           return (
@@ -89,7 +91,7 @@ function App() {
                   className='img'
                 />
                 <div className="img-overlay" onClick={() => openModal(image.id)}>
-                  <p>Click to view image details...</p>
+                  <p>View Image Details...</p>
                 </div>
               </div>
 
