@@ -4,11 +4,20 @@ import searchImage from './search.png'
 import likeIcon from './like_icon.png'
 
 function App() {
-  const [searchText, setSearchText] = useState('random')
+  // default states for 'search keyword (i.e movies)' and a 
+  // corresponding empty array to save returned (searched) data
+
+  const [searchText, setSearchText] = useState('movies')
   const [imagesRender, setImagesRender] = useState([])
 
-  const clientId = 'bHQPxBXq-GgLBzTlaxQY28uz_s4PP0Z15aTTjYFzzxU'
-  const url = `https://api.unsplash.com/search/photos?page=1&per_page=20&query=${searchText}&client_id=${clientId}`
+  // unsplash api base url, with query string parameters
+
+  const url = `https://api.unsplash.com/search/photos?
+                page=1&per_page=20&query=${searchText}
+                &client_id=${process.env.REACT_APP_ACCESS_KEY}`
+  
+  // api fetch --- save returned data in setImagesRender()
+  // to offset default rendered images
 
   function imagesFetchRequest() {
     fetch(url)
@@ -19,7 +28,12 @@ function App() {
       })
   }
 
+  // render default images (i.e movies) only once when browser loads
+
   useEffect(imagesFetchRequest, [])
+
+  // invoke callback function in handleSearch() when form is submitted by 
+  // pressing 'Enter' on the keyboard, or clicking the 'search lens' image
 
   function handleSearch(e) {
     e.preventDefault()
@@ -27,10 +41,14 @@ function App() {
     imagesFetchRequest()
   }
 
+  // make modal visible, and disable vertical scrollbar
+
   function openModal(id) {
     document.getElementById(id).style.display = 'block'
     document.body.classList.add('active-modal')
   }
+
+  // make modal invisible, and enable vertical scrollbar
 
   function closeModal(id) {
     document.getElementById(id).style.display = 'none'
@@ -60,7 +78,7 @@ function App() {
         </form>
       </div>
 
-      <div className='image-container'>
+      <div className='img-container'>
         {imagesRender.map((image) => {
           return (
             <section key={image.id}>
@@ -68,7 +86,7 @@ function App() {
                 <img
                   src={image.urls.thumb}
                   alt={image.alt_description}
-                  className='image'
+                  className='img'
                 />
                 <div className="img-overlay" onClick={() => openModal(image.id)}>
                   <p>Click to view image details...</p>
@@ -81,12 +99,12 @@ function App() {
                   <img
                     src={image.urls.thumb}
                     alt={image.alt_description}
-                    className='modal-image'
+                    className='modal-img'
                   />
 
-                  <div className='modal-image-info'>
+                  <div className='modal-img-info'>
                     <div className="photographer">
-                      <img src={image.user.profile_image.small} alt='user profile image' className='photographer-image' />
+                      <img src={image.user.profile_image.small} alt='user profile image' className='photographer-img' />
                       <p>{image.user.name}</p>
                     </div>
 

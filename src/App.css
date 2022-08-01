@@ -10,7 +10,6 @@ body {
 	animation: gradient 15s ease infinite;
 	height: 100vh;
   width: 100vw;
-  /* padding: 0 3rem; */
 }
 
 @keyframes gradient {
@@ -25,12 +24,6 @@ body {
 	}
 }
 
-.app {
-  /* position: relative; */
-  /* align-items: center;
-  text-align: center; */
-}
-
 .app,
 .top {
   display: flex;
@@ -39,36 +32,28 @@ body {
   text-align: center;
 }
 
-.top h1,
-.top input {
-  /* margin: 0; */
-}
-
 .top h1 {
   font-size: 1.25rem;
-  /* font-size: 20px; */
-  /* margin: 2rem 1.5rem; */
+  margin: 2rem 1.5rem;
   opacity: 0.9;
   color: #fff;
-  /* text-align: center; */
 }
 
+/* ======= Search Bar ======= */
+
 .top .search-bar {
-  /* max-width: 450px; */
-  /* width: 320px; */
   width: 85vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgba(255,255,255,0.2);
   padding: 5px 5px 5px 20px;
-  /* margin: 0 1.5rem; */
   border-radius: 50px;
   backdrop-filter: blur(4px) saturate(80%);
 }
 
 .search-input {
-  width: 85%;
+  width: 100%;
   font-size: 0.7rem;
   background: transparent;
   border: none;
@@ -90,24 +75,16 @@ body {
   border-radius: 50px;
   padding: 0.4rem;
   background: rgba(255,255,255,0.4);
-  /* cursor: pointer; */
 }
 
-/*--------image container-------*/
+/*======= Image Container=======*/
 
-.image-container,
+.img-container,
 .img-wrapper {
   border-radius: 10px;
 }
 
-.image-container {
-  /* display: flex;
-  flex-direction: column; */
-  /*flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;*/
-  /* max-width: 800px; */
-  /* width: 85vw; */
+.img-container {
   background: #fff;
   margin: 40px 0 30px 0;
   padding-top: 20px;
@@ -115,117 +92,34 @@ body {
 }
 
 .img-wrapper {
-  /* position: relative; */
   align-items: center;
   overflow: hidden;
   height: 250px;
   width: 300px;
-  /* height: 42vh;
-  width: 79vw; */
   margin: 30px 10px 5px 10px;
 }
 
-/* .img-wrapper:hover .img-overlay {
-  display: block;
-}
-
-.img-wrapper .img-overlay {
-  display: none;
-  color: #fff;
-  font-size: 10px;
-  background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.4) 100%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 90px;
-  height: 100%;
-  width: 100%;
-  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em red;
-  cursor: pointer;
-} */
-
-.image {
+.img {
   width: 100%;
   height: 100%;
-  /* cursor: pointer; */
   object-fit: cover;
 }
 
 .overlay,
-.modal-image,
+.modal-img,
 .btn-close-modal {
   display: none;
 }
 
-/* -------Modal-------
-.active-modal {
-  overflow-y: hidden;
-}
+/*======= Modal Image Info =======*/
 
-.modal {
-  display: none;
-  z-index: 99;
-}
-
-.modal, 
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-}
-
-.overlay {
-  background: rgba(77, 75, 75, 0.8);
-}
-
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #f1f1f1;
-  padding: 50px 20px ;
-  border: 3px solid black;
-}
-
-.btn-close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
-}
-
-.btn-close-modal:hover {
-  background: rgb(185, 54, 54);
-  padding: 9px;
-  border: none;
-  border-radius: 2px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal-image {
-  max-width: 600px;
-  min-width: 300px;
-}
-
-
-
-/*-------Modal Image Info-------*/
-
-.modal-image-info {
-  /* display: flex; */
-  /* justify-content: space-around; */
+.modal-img-info {
   margin-bottom: 30px;
   position: relative;
   z-index: 99;
 }
 
-.modal-image-info p {
+.modal-img-info p {
   padding: 0 8px;
   font-size: 11px;
   align-self: center;
@@ -234,8 +128,6 @@ body {
 .photographer,
 .likes {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .photographer {
@@ -244,7 +136,7 @@ body {
   left: 12px;
 }
 
-.photographer-image {
+.photographer-img {
   width: 25px;
   border-radius: 50%;
 }
@@ -259,170 +151,160 @@ body {
   margin: 1px 8px;
 }
 
+/* ---------------------------------------------------- */
+
 /* ======= Media Queries ======= */
 
 @media (min-width: 420px) {
   .app .top .search-bar {
-    width: 600px;
-  }
-
-  .top .search-bar {
-    /* margin: 0 2rem; */
+    width: 70vw;
   }
 
   .search-lens {
     cursor: pointer;
   }
 
-  /*--------image container-------*/
+  /*======= Image Container =======*/
 
-.image-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  max-width: 80%;
-  /* padding-top: 20px; */
-  background: red;
-  margin: 60px 0 150px 0;
-  box-shadow: none;
-}
-
-.img-wrapper {
-  position: relative;
-  /* border-radius: 10px; */
-  /* overflow: hidden; */
-  /* height: 250px; */
-  width: 250px;
-  margin: 0;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5); 
-  /* background-color: rgba(255,255,255,0.2); */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-
-  .img-wrapper .img-overlay {
-    display: none;
-    color: #fff;
-    font-size: 10px;
-    background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.4) 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: 110px;
-    height: 100%;
-    width: 100%;
-    /* text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em red; */
-    cursor: pointer;
-  }
-
-  .img-wrapper .img-overlay p {
-    display: inline-block;
-    background-color: rgba(0,0,0,0.5);
-    padding: 5px 8px;
-    border-radius: 50px;
-  }
-
-  .img-wrapper:hover .img-overlay {
-    display: block;
-  }
-
-  .image {
-    cursor: pointer;
-  }
-
-  /* -------Modal------- */
-  .active-modal {
-    overflow-y: hidden;
-  }
-
-  .modal {
-    display: none;
-    z-index: 99;
-  }
-
-  .overlay,
-  .modal-image,
-  .btn-close-modal {
-    display: block;
-  }
-
-  .modal, 
-  .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-  }
-
-  .overlay {
-    background: rgba(77, 75, 75, 0.8);
-  }
-
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #f1f1f1;
-    padding: 50px 20px ;
-    border: 3px solid black;
-  }
-
-  .btn-close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 7px;
-  }
-
-  .btn-close-modal:hover {
-    background: rgb(185, 54, 54);
-    padding: 9px;
-    border: none;
-    border-radius: 2px;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .modal-image {
-    max-width: 600px;
-    min-width: 300px;
-  }
-
-  /*-------Modal Image Info-------*/
-
-  .modal-image-info {
+  .img-container {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 0;
-    padding-top: 5px;
-    position: static;
-    z-index: 0;
-  }
-
-  .modal-image-info p {
-    /* margin-left: 8px; */
-    padding: 0 0 0 8px;
-    font-size: 13px;
-  }
-
-  .photographer,
-  .likes {
-    /* display: flex; */
+    flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
-    align-items: center;
+    max-width: 80%;
+    background: none;
+    margin: 60px 0 150px 0;
+    box-shadow: none;
   }
 
-  .likes {
+  .img-wrapper {
+    position: relative;
+    width: 250px;
     margin: 0;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5); 
   }
 
-  .photographer {
-    position: static;
+    .img-wrapper .img-overlay {
+      display: none;
+      color: #fff;
+      font-size: 10px;
+      background-image: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.4) 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 110px;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .img-wrapper .img-overlay p {
+      display: inline-block;
+      background-color: rgba(0,0,0,0.5);
+      padding: 5px 8px;
+      border-radius: 50px;
+    }
+
+    .img-wrapper:hover .img-overlay {
+      display: block;
+    }
+
+    .img {
+      cursor: pointer;
+    }
+
+    /*======= Modal =======*/
+    .active-modal {
+      overflow-y: hidden;
+    }
+
+    .modal {
+      display: none;
+      z-index: 99;
+    }
+
+    .overlay,
+    .modal-img,
+    .btn-close-modal {
+      display: block;
+    }
+
+    .modal, 
+    .overlay {
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+    }
+
+    .overlay {
+      background: rgba(77, 75, 75, 0.8);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #f1f1f1;
+      padding: 50px 20px ;
+      border: 3px solid black;
+    }
+
+    .modal-img {
+      max-width: 600px;
+      min-width: 300px;
+    }
+
+    /*=======Modal Image Info=======*/
+
+    .modal-img-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0;
+      padding-top: 5px;
+      position: static;
+      z-index: 0;
+    }
+
+    .modal-img-info p {
+      padding: 0 0 0 8px;
+      font-size: 13px;
+    }
+
+    .photographer,
+    .likes {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .likes {
+      margin: 0;
+    }
+
+    .photographer {
+      position: static;
+    }
+
+    /* ======= Close Modal ======= */
+
+    .btn-close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 7px;
+    }
+
+    .btn-close-modal:hover {
+      background: rgb(185, 54, 54);
+      padding: 9px;
+      border: none;
+      border-radius: 2px;
+      color: #fff;
+      cursor: pointer;
+    }
+
   }
-}
