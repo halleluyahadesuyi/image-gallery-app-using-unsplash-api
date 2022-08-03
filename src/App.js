@@ -4,10 +4,10 @@ import searchImage from './search.png'
 import likeIcon from './like_icon.png'
 
 function App() {
-  // default states for 'search keyword (i.e movies)' and a 
+  // default states for 'search keyword (i.e food)' and a 
   // corresponding empty array to save returned (searched) data
 
-  const [searchText, setSearchText] = useState('movies')
+  const [searchText, setSearchText] = useState('food')
   const [imagesRender, setImagesRender] = useState([])
 
   // unsplash api base url, with query string parameters
@@ -15,7 +15,7 @@ function App() {
   const url = `https://api.unsplash.com/search/photos?
                 page=1&per_page=20&query=${searchText}
                 &client_id=${process.env.REACT_APP_ACCESS_KEY}`
-  
+
   // api fetch --- save returned data in setImagesRender()
   // to offset default rendered images
 
@@ -28,7 +28,7 @@ function App() {
       })
   }
 
-  // render default images (i.e movies) only once when browser loads
+  // render default images (i.e food) only once when browser loads
 
   useEffect(imagesFetchRequest, [])
 
