@@ -78,7 +78,7 @@ function App() {
         </form>
       </div>
 
-      <p className="click-notice">***Click on preferred image for more info <span>👇</span></p>
+      <p className='click-notice'>***Click on preferred image for more info <span>👇</span></p>
 
       <div className='img-container'>
         {imagesRender.map((image) => {
@@ -90,14 +90,14 @@ function App() {
                   alt={image.alt_description}
                   className='img'
                 />
-                <div className="img-overlay" onClick={() => openModal(image.id)}>
+                <div className='img-overlay' onClick={() => openModal(image.id)}>
                   <p>View Image Details...</p>
                 </div>
               </div>
 
-              <div className="modal" id={image.id}>
-                <div onClick={() => closeModal(image.id)} className="overlay"></div>
-                <div className="modal-content">
+              <div className='modal' id={image.id}>
+                <div onClick={() => closeModal(image.id)} className='overlay'></div>
+                <div className='modal-content'>
                   <img
                     src={image.urls.thumb}
                     alt={image.alt_description}
@@ -105,18 +105,18 @@ function App() {
                   />
 
                   <div className='modal-img-info'>
-                    <div className="photographer">
+                    <div className='photographer'>
                       <img src={image.user.profile_image.small} alt='user profile image' className='photographer-img' />
                       <p>{image.user.name}</p>
                     </div>
 
-                    <div className="likes">
+                    <div className='likes'>
                       <img src={likeIcon} alt='likes' className='likes-icon' />
                       <p>{image.likes}</p>
                     </div>
                   </div>
 
-                  <button className="btn-close-modal" onClick={() => closeModal(image.id)}>
+                  <button className='btn-close-modal' onClick={() => closeModal(image.id)}>
                     &times;
                   </button>
                 </div>
