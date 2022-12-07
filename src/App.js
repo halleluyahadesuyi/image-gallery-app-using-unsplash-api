@@ -9,6 +9,7 @@ function App() {
 
   const [searchText, setSearchText] = useState('food')
   const [imagesRender, setImagesRender] = useState([])
+  const [modalToggle, setModalToggle] = useState(false)
 
   // unsplash api base url, with query string parameters
 
@@ -23,7 +24,6 @@ function App() {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        console.log(data.results)
         setImagesRender(data.results)
       })
   }
